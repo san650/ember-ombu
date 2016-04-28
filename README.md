@@ -1,26 +1,49 @@
-# Ember-ombu
+# ember-ombu
 
-This README outlines the details of collaborating on this Ember addon.
+Really simple page objects for your acceptance tests
+
+```js
+import Ombu from 'ember-ombu';
+
+var page = Ombu.create({
+  visit: '/login',
+
+  userName: ':text',
+  password: ':password',
+
+  submit: ':submit',
+
+  message: '.message'
+});
+
+test('can log-in', function(assert) {
+  visit(page);
+
+  fillIn(page.userName, 'santiago');
+  fillIn(page.password, 'secret');
+
+  click(page.submit);
+
+  andThen(function() {
+    assert.equal(find(page.message).text(), 'Log-in successful!');
+  });
+});
+```
+
+See [Ombu](https://github.com/san650/ombu) for more information.
 
 ## Installation
 
-* `git clone` this repository
-* `npm install`
-* `bower install`
+```js
+ember install ember-ombu
+```
 
-## Running
+## Project's health
 
-* `ember server`
-* Visit your app at http://localhost:4200.
+[![Build Status](https://travis-ci.org/san650/ember-ombu.svg?branch=master)](https://travis-ci.org/san650/ember-ombu)
 
-## Running Tests
+## License
 
-* `npm test` (Runs `ember try:testall` to test your addon against multiple Ember versions)
-* `ember test`
-* `ember test --server`
+Ombu is licensed under the MIT license.
 
-## Building
-
-* `ember build`
-
-For more information on using ember-cli, visit [http://ember-cli.com/](http://ember-cli.com/).
+See [LICENSE.md](./LICENSE.md) for the full license text.
