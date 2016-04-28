@@ -8,24 +8,30 @@ import Ombu from 'ember-ombu';
 var page = Ombu.create({
   visit: '/login',
 
-  userName: ':text',
-  password: ':password',
+  login: {
+    scope: 'form',
 
-  submit: ':submit',
+    userName: ':text',
+    password: ':password',
+
+    submit: ':submit'
+  },
+
 
   message: '.message'
 });
 
 test('can log-in', function(assert) {
-  visit(page);
+  visit(page); // => visit('/login');
 
-  fillIn(page.userName, 'santiago');
-  fillIn(page.password, 'secret');
+  fillIn(page.login.userName, 'santiago'); // => fillIn('form :text', 'santiago')
+  fillIn(page.login.password, 'secret'); // => fillIn('form :password', 'secret')
 
-  click(page.submit);
+  click(page.login.submit); // => click('form :submit')
 
   andThen(function() {
     assert.equal(find(page.message).text(), 'Log-in successful!');
+    // => find('.message').text()
   });
 });
 ```
