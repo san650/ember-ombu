@@ -1,6 +1,16 @@
 # ember-ombu
+[![Build Status](https://travis-ci.org/san650/ember-ombu.svg?branch=master)](https://travis-ci.org/san650/ember-ombu)
+![Latest version](https://img.shields.io/npm/v/ember-ombu.svg)
 
 Really simple page objects for your acceptance tests
+
+## Installation
+
+```js
+ember install ember-ombu
+```
+
+## Synopsis
 
 ```js
 import Ombu from 'ember-ombu';
@@ -37,12 +47,6 @@ test('can log-in', function(assert) {
 ```
 
 See [Ombu](https://github.com/san650/ombu) for more information.
-
-## Installation
-
-```js
-ember install ember-ombu
-```
 
 ## Project's health
 
