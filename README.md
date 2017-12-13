@@ -53,6 +53,7 @@ See [Ombu](https://github.com/san650/ombu) for more information.
 [![Maintainability](https://api.codeclimate.com/v1/badges/525ca3e2404154f50596/maintainability)](https://codeclimate.com/github/san650/ember-ombu/maintainability)
 [![dependencies Status](https://david-dm.org/san650/ember-ombu/status.svg)](https://david-dm.org/san650/ember-ombu)
 [![devDependencies Status](https://david-dm.org/san650/ember-ombu/dev-status.svg)](https://david-dm.org/san650/ember-ombu?type=dev)
+[![Coverage Status](https://coveralls.io/repos/github/san650/ember-ombu/badge.svg?branch=master)](https://coveralls.io/github/san650/ember-ombu?branch=master)
 
 ## License
 
