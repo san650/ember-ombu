@@ -13,36 +13,34 @@ ember install ember-ombu
 ## Synopsis
 
 ```js
+import { test } = 'qunit';
 import Ombu from 'ember-ombu';
+import moduleForAcceptance from '../../tests/helpers/module-for-acceptance';
 
-var page = Ombu.create({
+const page = Ombu.create({
   visit: '/login',
 
-  login: {
-    scope: 'form',
-
-    userName: ':text',
-    password: ':password',
-
-    submit: ':submit'
-  },
-
-
-  message: '.message'
+  form: {
+    email: '[data-test-email]',
+    password: '[data-test-password]',
+    errorMessage: '[data-test-error-message]',
+    submit: 'button[type=submit]',
+  }
 });
 
-test('can log-in', function(assert) {
-  visit(page); // => visit('/login');
+moduleForAcceptance('Acceptance | login');
 
-  fillIn(page.login.userName, 'santiago'); // => fillIn('form :text', 'santiago')
-  fillIn(page.login.password, 'secret'); // => fillIn('form :password', 'secret')
+test('show error message on invalid input', async function() {
+  visit(page);                                       // => visit('/login');
 
-  click(page.login.submit); // => click('form :submit')
+  const {email, password, errorMessage, submit} = page.form;
 
-  andThen(function() {
-    assert.equal(find(page.message).text(), 'Log-in successful!');
-    // => find('.message').text()
-  });
+  await fillIn(email, 'john@example.com');           // => fillIn('[data-test-email]', 'john@example.com')
+  await fillIn(password, 'secret');                  // => fillIn('[data-test-email]', 'john@example.com')
+  await click(submit);                               // => click('button[type=submit]');
+
+  assert.equal(find(errorMessage).text().trim(),     // => assert.equal(find('[data-test-error-message]').text().trim(),
+    'Invalid email and password combination');       //       'Invalid email and password combination');
 });
 ```
 
