@@ -48,7 +48,11 @@ See [Ombu](https://github.com/san650/ombu) for more information.
 
 ## Project's health
 
+[![Ember Observer Score](https://emberobserver.com/badges/ember-ombu.svg)](https://emberobserver.com/addons/ember-ombu)
 [![Build Status](https://travis-ci.org/san650/ember-ombu.svg?branch=master)](https://travis-ci.org/san650/ember-ombu)
+[![Maintainability](https://api.codeclimate.com/v1/badges/525ca3e2404154f50596/maintainability)](https://codeclimate.com/github/san650/ember-ombu/maintainability)
+[![dependencies Status](https://david-dm.org/san650/ember-ombu/status.svg)](https://david-dm.org/san650/ember-ombu)
+[![devDependencies Status](https://david-dm.org/san650/ember-ombu/dev-status.svg)](https://david-dm.org/san650/ember-ombu?type=dev)
 
 ## License
 
